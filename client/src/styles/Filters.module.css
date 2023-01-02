@@ -1,0 +1,19 @@
+.filtersContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.selectFilters:hover {
+    cursor: pointer;
+    border: 1px solid #fff;
+    box-shadow: 0 0 7px #fff,
+                0 0 7px #fff,
+                0 0 10px #d6a1ecf1,
+                0 0 5px #d6a1ecf1,
+                0 0 10px #d6a1ecf1,
+                inset 0 0 20px #d6a1ecf1; 
+}
+

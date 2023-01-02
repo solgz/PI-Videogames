@@ -1,0 +1,59 @@
+.navContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:rgb(0, 0, 0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    width: 100%;
+    padding: 5px;
+}
+
+.navButtons {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 15px;
+    border: 2px solid rgb(67, 7, 73);
+    color: rgb(67, 13, 91);
+    background-color:rgb(255, 255, 255);
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.navButtons:hover {
+    cursor: pointer;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #9c28e9,
+    0 0 0.8rem #9c28e9,
+    0 0 2.8rem #9c28e9,
+    inset 0 0 1.3rem #9c28e9; 
+}
+
+.searchContainer {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.search:focus {
+    cursor: pointer;
+    border: 1px solid #fff;
+    box-shadow: 0 0 7px #fff,
+                0 0 7px #fff,
+                0 0 10px #d6a1ecf1,
+                0 0 5px #d6a1ecf1,
+                0 0 10px #d6a1ecf1,
+                inset 0 0 20px #d6a1ecf1; 
+}
+
+.addGameLink:link { text-decoration: none; }
+.addGameLink:visited { text-decoration: none; }
+.addGameLink:active { text-decoration: none; }
+
+

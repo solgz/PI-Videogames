@@ -1,0 +1,162 @@
+.detailPage {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-image: url('../images/3.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.volverContainer {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+}
+
+.volverButton {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 18px;
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 7px #fff;
+    color: rgb(67, 13, 91);
+    background-color:rgb(255, 255, 255);
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.volverButton:hover {
+    cursor: pointer;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #9c28e9,
+    0 0 0.8rem #9c28e9,
+    0 0 2.8rem #9c28e9,
+    inset 0 0 1.3rem #9c28e9; 
+}
+.volverLink:link { text-decoration: none; }
+.volverLink:visited { text-decoration: none; }
+.volverLink:active { text-decoration: none; }
+
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.778);
+    margin: 50px;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    height: 100%;
+    width: 800px;
+}
+
+.title {
+    font-size: 45px;
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow:
+      0 0 21px #fff,
+      0 0 42px rgb(141, 61, 175),
+      0 0 82px rgb(141, 61, 175),
+      0 0 92px rgb(141, 61, 175),
+      0 0 102px rgb(141, 61, 175),
+      0 0 151px rgb(141, 61, 175);
+}
+
+.gameName {
+    color: white;
+}
+
+.rrContainer {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.ratingContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+}
+
+.rating {
+    margin-left: 15px;
+}
+
+.releaseContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+.gameImage{
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    object-fit: contain;
+}
+
+.description {
+    color: white;
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+}
+
+.gAndPContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: white; 
+    width: 100%;
+    margin-top: 20px;
+}
+.genres {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+}
+
+.platforms {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+.subtitles {
+    font-size: 35px;
+    font-family: "Century Gothic", sans-serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow:
+      0 0 21px #fff,
+      0 0 42px rgb(141, 61, 175),
+      0 0 82px rgb(141, 61, 175),
+      0 0 92px rgb(141, 61, 175),
+      0 0 102px rgb(141, 61, 175),
+      0 0 151px rgb(141, 61, 175);
+}

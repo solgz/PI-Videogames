@@ -1,0 +1,105 @@
+.wholeLanding {
+    width: 100%;
+	height: 100%;
+	background-color: rgb(1, 6, 44);
+	position: fixed;
+	margin: 0;
+	top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Century Gothic", sans-serif
+}
+
+.videogamesTitle {
+    animation: flicker 1.5s infinite alternate;
+    font-size: 60px;
+    font-weight: normal;
+    font-family: "Century Gothic", sans-serif;
+    color: rgb(255, 255, 255);
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(141, 61, 175),
+      0 0 82px rgb(141, 61, 175),
+      0 0 92px rgb(141, 61, 175),
+      0 0 102px rgb(141, 61, 175),
+      0 0 151px rgb(141, 61, 175);
+ 
+    border: 0.2rem solid #fff;
+    border-radius: 2rem;
+    padding: 0.4em;
+    box-shadow: 0 0 .2rem #fff,
+                0 0 .2rem #fff,
+                0 0 2rem #bc13fe,
+                0 0 0.8rem #bc13fe,
+                0 0 2.8rem #bc13fe,
+                inset 0 0 1.3rem #bc13fe; 
+    
+}
+.videogamesTitle:hover {
+    cursor: pointer;
+    animation: none;
+    font-size: 65px;
+}
+
+@keyframes flicker {
+    
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #bc13fe,
+        0 0 80px #bc13fe,
+        0 0 90px #bc13fe,
+        0 0 100px #bc13fe,
+        0 0 150px #bc13fe;
+    
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+    }    
+  }
+
+
+
+.videogamesLink:link { text-decoration: none; }
+.videogamesLink:visited { text-decoration: none; }
+.videogamesLink:active { text-decoration: none; }
+
+.buttonContainer {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.ingresarButton {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 40px;
+    border: 2px solid rgb(94, 13, 103);
+    background-color:rgb(213, 174, 225);
+    border-radius: 4px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.ingresarButton:hover {
+    cursor: pointer;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px #fff,
+                0 0 10px #fff,
+                0 0 30px #b588c6,
+                0 0 10px #b588c6,
+                0 0 30px #b588c6,
+                inset 0 0 60px #b588c6; 
+}
