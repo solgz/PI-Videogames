@@ -10,9 +10,6 @@ import Paginado from './Paginado';
 import NavBar from './NavBar';
 import styles from '../styles/Home.module.css'
 
-//si quisiera pasarle una imagen por default:
-//game.image? game.image : <img src="aca pongo el url de la img q quiera x default"/>
-
 export default function Home() {
     const dispatch = useDispatch();
     const allVideogames = useSelector((state) => state.videogames);
@@ -43,7 +40,6 @@ export default function Home() {
                 videogamesPerPage={videogamesPerPage}
                 allVideogames={allVideogames.length}
                 pages={pages}
-                // {currentPage === igual a que ? className={styles.currentPage} }
                 />
                 </div>
                 

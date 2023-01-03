@@ -45,26 +45,6 @@ function rootReducer(state = initialState, action){
             if (genre) {
                 array = array.filter((game) => game.genres.includes(genre));
             }
-
-            // if(genre) {
-                //tengo que traer todos los juegos de la api cuyos generos coincidan con el GENRE
-                //tambien tiene que traer todos los juegos de la base de datos cuyos generos coincidan con GENRE
-                // Los juegos de la api tienen una propiedad genero que es un ["gen1", "gen2"] con los generos
-                //Los j de la bss tienen una propiedad Genero que es un {[id: x, name:genero]}
-                //1ro mapeo el array de todos los juegos y por cada juego me fijo si tiene la prop genres
-                
-            //     array.map((game) => {
-            //         if(game.genres)  array = array.filter((game) => game.genres.includes(genre));
-            //         if(game.Genres) array = array.filter((game) => game.Genres.includes(genre));
-            //     })
-            // }
-            // if (genre) {
-            //     array.map((game) => {game.genres
-            //         ? array.filter((game) => game.genres.includes(genre))
-            //         : array.filter((game) => {
-            //             game.Genres.map ((gen) => gen.name === genre.toLowerCase())
-            //         })
-            //     })}
             if (origin === "Created") {
                array = array.filter((game) => typeof game.id === "string" )
             }

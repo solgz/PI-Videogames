@@ -26,19 +26,20 @@ router.post('/create', async (req, res) => {
        return res.status(400).json({ message: "No se brindaron los datos necesarios"});
     
     try {
-        const newVideogame = await Videogame.create({
+        let newVideogame = await Videogame.create({
             ...req.body,
         })
         const relation = await Genres.findAll({ 
-            where: {name: genres}, 
+            where: {name: genres} 
         });
-        await newVideogame.addGenres(relation); 
+        newVideogame.addGenres(relation); 
         res.status(200).json(newVideogame)
 
     } catch (error) {
             console.log(error);
         }
 })
+
 
 router.get('/platforms', getPlatforms )
 router.get('/:id', getVideogameById )

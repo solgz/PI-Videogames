@@ -33,14 +33,43 @@ const getApiInfo = async () => {
     }
 }
 
-const getDbInfo = async () => { 
-    try{
-        return await Videogame.findAll({include: [{model: Genres}]});
-    } catch (error) {
-        console.log(error);
-    }
-}
+// const getDbInfo = async () => { 
+//     try{
+//         return await Videogame.findAll({include: [{model: Genres}]});
+//     } catch (error) {
+//         console.log(error);
+//     }
+// } //aca podria mapear los generos para que me los devuelva igual q los de la api
+//y poner Genres en minuscula aca y en todos lados
 
+const getDbInfo = async() => {
+    try {
+        let dbVideogames;
+		dbVideogames = await Videogame.findAll({
+			include: [
+				{
+					model: Genres,
+					atributes: ["name"],
+					through: {
+						attributes: [],
+					},
+				},
+			],
+		});
+        dbVideogames = dbVideogames.map((game) => game.dataValues);
+        dbVideogames = dbVideogames.map((game) => {
+            let vgGenres = game.Genres.map((gen) => gen.name);
+            return dbVideogames = {
+                ...game,
+                genres: vgGenres
+            }
+        })
+        return dbVideogames;
+	} catch (e) {
+		console.error(e);
+	}
+}
+ 
 const getAllVideogames = async () => { 
     const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();
@@ -54,7 +83,7 @@ const getVideogameById = async (req, res) => {
 
     if (isNaN(id)) {
       videogame = await Videogame.findByPk(id, {
-        include: [
+        include: [ 
             {
                 model: Genres,
                 atributes: ["name"],
