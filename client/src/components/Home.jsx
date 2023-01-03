@@ -16,7 +16,6 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
     const dispatch = useDispatch();
     const allVideogames = useSelector((state) => state.videogames);
-    const loading = useSelector((state) => state.loading);
 
     const [currentPage, setCurrentPage] = useState(1) //declaro estado local de la pagina actual (que arranca en 1)
     const [videogamesPerPage, setVideogamesPerPage] = useState(15) //declaro otro estado local que define la cantidad de juegos x pag

@@ -31,3 +31,14 @@
     inset 0 0 1.3rem #9c28e9; 
   }
 
+.pageNumbers:focus {
+    cursor: pointer;
+    border: 2px solid #851bcb;
+    border-radius: 4px;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #851bcb,
+    0 0 0.8rem #851bcb,
+    0 0 2.8rem #851bcb,
+    inset 0 0 1.3rem #851bcb; 
+}

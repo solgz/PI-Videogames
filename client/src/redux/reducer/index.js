@@ -1,7 +1,6 @@
 import {
     GET_VIDEOGAMES,
     SEARCH_GAME,
-    LOADING,
     GAME_DETAIL,
     ADD_GAME,
     GET_GENRES,
@@ -21,7 +20,6 @@ const initialState = {
     origin: "",
     sort: "",
     genre: "",
-    loading: true,
 }
 
 function rootReducer(state = initialState, action){
@@ -77,12 +75,6 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 videogames: array
-            }
-
-        case LOADING:
-            return {
-                ...state,
-                loading: action.payload
             }
 
         case SEARCH_GAME:

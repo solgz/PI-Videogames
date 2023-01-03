@@ -10,7 +10,6 @@ export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 export const RESTORE_GAMES = "RESTORE_GAMES";
 export const ADD_GAME = "ADD_GAME";
 export const GET_PLATFORMS = "GET_PLATFORMS";
-export const LOADING = "LOADING";
 export const CLEAN_DETAIL ="CLEAN_DETAIL";
 
 export function getVideogames(){ //para manejo de errores usar try catch y hacer que me muestre los errores que tira el back
@@ -95,13 +94,6 @@ export function sort(sort) {
 export function restoreGames() {
     return {
         type: 'RESTORE_GAMES'
-    }
-}
-
-export function loading(status) {
-    return {
-        type: 'LOADING',
-        payload: status
     }
 }
 
