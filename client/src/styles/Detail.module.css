@@ -2,9 +2,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-image: url('../images/3.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .volverContainer {

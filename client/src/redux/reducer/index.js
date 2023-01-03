@@ -1,6 +1,7 @@
 import {
     GET_VIDEOGAMES,
     SEARCH_GAME,
+    LOADING,
     GAME_DETAIL,
     ADD_GAME,
     GET_GENRES,
@@ -8,7 +9,8 @@ import {
     FILTER_BY_GENRE,
     FILTER_BY_ORIGIN,
     SORT,
-    RESTORE_GAMES
+    RESTORE_GAMES,
+    CLEAN_DETAIL
 } from "../actions";
 
 const initialState = {
@@ -19,6 +21,7 @@ const initialState = {
     origin: "",
     sort: "",
     genre: "",
+    loading: true,
 }
 
 function rootReducer(state = initialState, action){
@@ -44,6 +47,19 @@ function rootReducer(state = initialState, action){
             if (genre) {
                 array = array.filter((game) => game.genres.includes(genre));
             }
+
+            // if(genre) {
+                //tengo que traer todos los juegos de la api cuyos generos coincidan con el GENRE
+                //tambien tiene que traer todos los juegos de la base de datos cuyos generos coincidan con GENRE
+                // Los juegos de la api tienen una propiedad genero que es un ["gen1", "gen2"] con los generos
+                //Los j de la bss tienen una propiedad Genero que es un {[id: x, name:genero]}
+                //1ro mapeo el array de todos los juegos y por cada juego me fijo si tiene la prop genres
+                
+            //     array.map((game) => {
+            //         if(game.genres)  array = array.filter((game) => game.genres.includes(genre));
+            //         if(game.Genres) array = array.filter((game) => game.Genres.includes(genre));
+            //     })
+            // }
             // if (genre) {
             //     array.map((game) => {game.genres
             //         ? array.filter((game) => game.genres.includes(genre))
@@ -61,6 +77,12 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 videogames: array
+            }
+
+        case LOADING:
+            return {
+                ...state,
+                loading: action.payload
             }
 
         case SEARCH_GAME:
@@ -118,6 +140,12 @@ function rootReducer(state = initialState, action){
                 order: "",
                 rating: "",
                 genre: "",
+            }
+
+        case CLEAN_DETAIL:
+            return {
+                ...state,
+                gameDetail: {}
             }
         default: return {...state};
     }
