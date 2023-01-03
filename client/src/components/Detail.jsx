@@ -18,8 +18,6 @@ export default function Detail(props) {
         dispatch(gameDetail(id))
         return dispatch(cleanDetail())
     }, [dispatch, id])
-
-    console.log(game)
    
     return(
         <>
@@ -43,7 +41,9 @@ export default function Detail(props) {
                         </div>
                     </div>
                     <div className={styles.imageContainer}>
-                        <img src={game.image} alt='' className={styles.gameImage}/>
+                    {game.image 
+                    ?  <img src={game.image} alt="" className={styles.gameImage}/> 
+                    : <img src="https://alicepos.com/wp-content/uploads/2018/08/video_games_header_2022.jpg" alt="" className={styles.gameImage} />} 
                     </div>
                     <div className={styles.description}><p dangerouslySetInnerHTML={{ __html: game.description }}/></div>
 
