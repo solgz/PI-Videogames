@@ -26,6 +26,8 @@ export default function Form() {
         name: "",
         description: "",
         platforms: "",
+        rating: "",
+        image: ""
     });
 
     const handleChange = (event) => {
@@ -143,6 +145,7 @@ export default function Form() {
                             onChange={(event) => handleChange(event)}
                         />
                     </div>
+                    <div className={styles.validationErrors}>{errors.image && <p>{errors.image}</p>}</div>
 
                     <div className={styles.fieldContainer}>
                         <label className={styles.labels}>Released</label>
@@ -168,6 +171,7 @@ export default function Form() {
                             onChange={(event) => handleChange(event)}
                         />
                     </div>
+                    <div className={styles.validationErrors}>{errors.rating && <p>{errors.rating}</p>}</div>
 
                     <div className={styles.fieldContainer}>
                             <label className={styles.labels}>Genres</label>
