@@ -43,9 +43,9 @@ export default function Form() {
         })
     }
 
-    function handleSubmit(event) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        dispatch(addGame(input))
+        const newGame = await dispatch(addGame(input))
         alert('Game added!')
         setInput({
             name: "",
@@ -56,7 +56,7 @@ export default function Form() {
             genres: [],
             platforms: []
         })
-        history.push('/home')
+        history.push(`/home/${newGame.data.id}`)
     }
 
     function handlePlatforms(event) {
@@ -224,7 +224,7 @@ export default function Form() {
                         <button 
                         type="submit" 
                         id='submitButton' 
-                        disabled={errors.name || errors.description || errors.platforms || !input.name || !input.description || !input.platforms}
+                        disabled={errors.name || errors.description || errors.platforms || errors.rating || !input.name || !input.description || !input.platforms}
                         className={styles.addButton} 
                         >Add</button>
                     </div>

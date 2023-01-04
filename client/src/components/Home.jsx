@@ -15,7 +15,8 @@ export default function Home() {
     const allVideogames = useSelector((state) => state.videogames);
 
     const [currentPage, setCurrentPage] = useState(1) //declaro estado local de la pagina actual (que arranca en 1)
-    const [videogamesPerPage, setVideogamesPerPage] = useState(15) //declaro otro estado local que define la cantidad de juegos x pag
+    // const [videogamesPerPage, setVideogamesPerPage] = useState(15) //declaro otro estado local que define la cantidad de juegos x pag
+    const videogamesPerPage = 15;
     const indexOfLastVideogame = currentPage * videogamesPerPage //seteo el indice del ult juego, que es el resultado de multiplicar la pag actual x la cant de juegos x pag
     const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage //seteo el indice del 1er juego
     const currentVideogames = allVideogames.slice(indexOfFirstVideogame, indexOfLastVideogame) //esta constante recibe todos los personajes y recorta el array en base al indice del 1er juego y el indice del ult
@@ -35,7 +36,8 @@ export default function Home() {
             </div>
             <div className={styles.home}>
                 <div>
-                <NavBar/>  
+                <NavBar
+                pages={pages}/>  
                 <Paginado
                 videogamesPerPage={videogamesPerPage}
                 allVideogames={allVideogames.length}

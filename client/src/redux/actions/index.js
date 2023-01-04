@@ -11,6 +11,7 @@ export const RESTORE_GAMES = "RESTORE_GAMES";
 export const ADD_GAME = "ADD_GAME";
 export const GET_PLATFORMS = "GET_PLATFORMS";
 export const CLEAN_DETAIL ="CLEAN_DETAIL";
+export const CLEAN_VIDEOGAMES = "CLEAN_VIDEOGAMES";
 
 export function getVideogames(){ //para manejo de errores usar try catch y hacer que me muestre los errores que tira el back
     return async function(dispatch){
@@ -100,6 +101,13 @@ export function restoreGames() {
 export function cleanDetail() {
     return {
         type: 'CLEAN_DETAIL',
+    }
+
+}
+
+export function cleanVideogames() {
+    return {
+        type: 'CLEAN_VIDEOGAMES'
     }
 }
 

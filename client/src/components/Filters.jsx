@@ -1,22 +1,26 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { filterByOrigin, filterVideogamesByGenre, getVideogames, getGenres, sort } from "../redux/actions";
+import { filterByOrigin, filterVideogamesByGenre, getVideogames, getGenres, sort, cleanVideogames } from "../redux/actions";
 import styles from "../styles/Filters.module.css";
 
-export default function Filters() {
+export default function Filters({pages}) {
 
     const dispatch = useDispatch();
     const genres = useSelector((state) => state.genres);
 
     function handleFilterByGenre(event) {
+        dispatch(cleanVideogames())
         dispatch(filterVideogamesByGenre(event.target.value))
-        dispatch(getVideogames())
+        dispatch(getVideogames()) //aca crear constante como la que hice en el create
+        pages(1)
     }
 
     function handleFilterByOrigin(event) {
+        dispatch(cleanVideogames())
         dispatch(filterByOrigin(event.target.value))
         dispatch(getVideogames())
+        pages(1)
     }
 
     function handleSort(event) {

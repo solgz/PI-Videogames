@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Filters from './Filters';
 import styles from '../styles/NavBar.module.css';
 
-export default function NavBar() {
+export default function NavBar({pages}) {
 
     const [search, setSearch] = useState("");
     const dispatch = useDispatch();
@@ -16,6 +16,7 @@ export default function NavBar() {
         event.preventDefault();
         if(search.length) {
             dispatch(searchGame(search))
+            pages(1)
         }
     }
 
@@ -44,7 +45,9 @@ export default function NavBar() {
                 <button type="submit" onClick={(event) => handleSubmit(event)} className={styles.navButtons}>Search</button>
             </div>
             <div>
-                <Filters />
+                <Filters 
+                pages={pages}
+                />
             </div>
             <div>
                 <Link to="/addGame" className={styles.addGameLink}><button className={styles.navButtons}>Add Game</button></Link>

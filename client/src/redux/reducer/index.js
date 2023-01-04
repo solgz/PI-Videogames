@@ -9,7 +9,8 @@ import {
     FILTER_BY_ORIGIN,
     SORT,
     RESTORE_GAMES,
-    CLEAN_DETAIL
+    CLEAN_DETAIL,
+    CLEAN_VIDEOGAMES
 } from "../actions";
 
 const initialState = {
@@ -118,6 +119,12 @@ function rootReducer(state = initialState, action){
             return {
                 ...state,
                 gameDetail: {}
+            }
+        
+        case CLEAN_VIDEOGAMES:
+            return {
+                ...state,
+                videogames: []
             }
         default: return {...state};
     }
