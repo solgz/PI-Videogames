@@ -107,7 +107,7 @@ export default function Form() {
         <div className={styles.createPage}>
             <div className={styles.createContainer}>
                 <div className={styles.volverContainer}>
-                    <Link to="/home" className={styles.volverLink}><button className={styles.volverButton}>Volver</button></Link>
+                    <Link to="/home" className={styles.volverLink}><button className={styles.volverButton}>🔙</button></Link>
                 </div>
                 <h1 className={styles.title}>ADD GAME</h1>
                 <form onSubmit={(event) => handleSubmit(event)}  >

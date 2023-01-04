@@ -10,17 +10,56 @@
     padding: 5px;
 }
 
+.logoAndRestore {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logoContainer {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+  }
+
+.logoImg {
+    width: 40px;
+    border-radius: 10px;
+    height: 38px;
+    object-fit: cover;
+  }
+
+.logoContainer:hover {
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #9c28e9,
+    0 0 0.8rem #9c28e9,
+    0 0 2.8rem #9c28e9,
+    inset 0 0 1.3rem #9c28e9; 
+}
+
+
 .navButtons {
     display: flex;
     justify-items: center;
     align-items: center;
     font-size: 15px;
-    border: 2px solid rgb(67, 7, 73);
+    border-radius: 4px;
     color: rgb(67, 13, 91);
     background-color:rgb(255, 255, 255);
     border-radius: 4px;
     margin: 5px;
     padding: 5px;
+    box-shadow: 0 0 .2rem rgb(0, 0, 0),
+    0 0 .2rem rgb(0, 0, 0),
+    0 0 2.8rem #6f18a8,
+    inset 0 0 1.3rem #851eca; 
 }
 
 .navButtons:hover {

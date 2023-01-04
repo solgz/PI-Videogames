@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchGame, restoreGames, getVideogames } from "../redux/actions";
+import { searchGame, restoreGames, getVideogames, cleanVideogames } from "../redux/actions";
 import { Link } from "react-router-dom";
 import Filters from './Filters';
 import styles from '../styles/NavBar.module.css';
@@ -21,6 +21,7 @@ export default function NavBar({pages}) {
     }
 
     function handleRestoreGames() {
+        dispatch(cleanVideogames())
         dispatch(restoreGames())
         dispatch(getVideogames())
         setSearch("");
@@ -30,8 +31,13 @@ export default function NavBar({pages}) {
   
     return(
         <div className={styles.navContainer}>
-            <div>
-                <button onClick={handleRestoreGames} className={styles.navButtons}>Restore Games</button>
+            <div className={styles.logoAndRestore}>
+                <Link to="/">
+                <div className={styles.logoContainer}><img src="https://i.pinimg.com/originals/b9/ab/17/b9ab174206571509bfac1379ea8c95f7.jpg" alt="" className={styles.logoImg}/></div>
+                </Link>
+                <div>
+                    <button onClick={handleRestoreGames} className={styles.navButtons}>Reload Games</button>
+                </div>
             </div>
             <div className={styles.searchContainer}>
                 <input 

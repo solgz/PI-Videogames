@@ -27,7 +27,7 @@ export default function Detail(props) {
             <div className={styles.detailPage}>
                 <div className={styles.detailsContainer}>
                     <div className={styles.volverContainer}>
-                        <Link to='/home' className={styles.volverLink}><button className={styles.volverButton}>Volver</button></Link>
+                        <Link to='/home' className={styles.volverLink}><button className={styles.volverButton}>🔙</button></Link>
                     </div>
                     <h1 className={styles.title}>{game.name}</h1>
                     <div className={styles.rrContainer}>
