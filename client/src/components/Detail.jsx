@@ -37,7 +37,7 @@ export default function Detail(props) {
                         </div>
                         <div className={styles.releaseContainer}>
                             <label className={styles.rating}>Released:</label>
-                            <p>{game.released}</p>
+                            <p>{game.released ? game.released : game.release}</p>
                         </div>
                     </div>
                     <div className={styles.imageContainer}>

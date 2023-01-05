@@ -33,15 +33,6 @@ const getApiInfo = async () => {
     }
 }
 
-// const getDbInfo = async () => { 
-//     try{
-//         return await Videogame.findAll({include: [{model: Genres}]});
-//     } catch (error) {
-//         console.log(error);
-//     }
-// } //aca podria mapear los generos para que me los devuelva igual q los de la api
-//y poner Genres en minuscula aca y en todos lados
-
 const getDbInfo = async() => {
     try {
         let dbVideogames;
@@ -127,28 +118,8 @@ const getPlatforms = async (req, res) => {
     }
 }
 
-// const createGame = async (req, res) => {
-//         const { name, image, genres, released, rating, platforms, description } = req.body;
-//         if (!name || !platforms || !description )
-//            return res.status(400).json({ message: "No se brindaron los datos necesarios"});
-        
-//         try {
-//             let newVideogame = await Videogame.create({
-//                 ...req.body,
-//             })
-//             const relation = await Genres.findAll({ 
-//                 where: {name: genres} 
-//             });
-//             newVideogame.addGenres(relation); 
-//             res.status(200).json(newVideogame)
-    
-//         } catch (error) {
-//                 console.log(error);
-//             }
-//     }
-
 const createGame = async (req, res) => {
-        const { name, image, genres, released, rating, platforms, description } = req.body;
+        const { name, image, genres, release, rating, platforms, description } = req.body;
         const allGames = await getDbInfo();
         const repeatedName = await allGames.filter(game => game.name.toLowerCase() === name.toLowerCase())
 
@@ -165,7 +136,7 @@ const createGame = async (req, res) => {
                 name,
                 image,
                 genres,
-                released,
+                release,
                 rating,
                 platforms,
                 description

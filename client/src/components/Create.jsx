@@ -9,8 +9,9 @@ export default function Form() {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const genres = useSelector((state) => state.genres);
-    const platforms = useSelector((state) => state.platforms);
+    // const genres = useSelector((state) => state.genres);
+    // const platforms = useSelector((state) => state.platforms);
+    const {genres, platforms} =  useSelector((state) => state);
 
     const [input, setInput] = useState({
         name: "",
@@ -165,7 +166,7 @@ export default function Form() {
                     </div>
 
                     <div className={styles.fieldContainer}>
-                        <label className={styles.labels}>Rating</label>
+                        <label className={styles.labels}>Rating*</label>
                         <input 
                             type='number' 
                             placeholder='Rating'
