@@ -25,11 +25,15 @@ export function getVideogames(){ //para manejo de errores usar try catch y hacer
 
 export function searchGame(name) {
     return async function(dispatch){
-        let apiRequest = await axios.get(`http://localhost:3001/videogames?name=${name}`);
-        return dispatch({
-            type: 'SEARCH_GAME',
-            payload: apiRequest.data 
-        })
+        try{
+            let apiRequest = await axios.get(`http://localhost:3001/videogames?name=${name}`);
+            return dispatch({
+                type: 'SEARCH_GAME',
+                payload: apiRequest.data 
+            })
+        } catch(error) {
+            return error;
+        }
     }
 }
 
@@ -45,8 +49,12 @@ export function gameDetail(id) {
 
 export function addGame(newGame) {
     return async function() {
-        let createdGame = await axios.post("http://localhost:3001/videogames/create", newGame);
-        return createdGame;
+        try{
+            let createdGame = await axios.post("http://localhost:3001/videogames/create", newGame);
+            return createdGame;
+        } catch(error) {
+            return error;
+        }
     }
 }
 

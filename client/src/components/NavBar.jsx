@@ -11,12 +11,15 @@ export default function NavBar({pages}) {
     const [search, setSearch] = useState("");
     const dispatch = useDispatch();
 
-    function handleSubmit(event) {
-
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if(search.length) {
-            dispatch(searchGame(search))
-            pages(1)
+            const response = await dispatch(searchGame(search))
+            if (response.payload) {
+                pages(1)
+            } else {
+                alert("We're sorry! We couldn't find the game you're searching for")
+            }
         }
     }
 

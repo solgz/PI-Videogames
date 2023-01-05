@@ -46,17 +46,21 @@ export default function Form() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const newGame = await dispatch(addGame(input))
-        alert('Game added!')
-        setInput({
-            name: "",
-            description: "", 
-            image: "",
-            released: "",
-            rating: "",
-            genres: [],
-            platforms: []
-        })
-        history.push(`/home/${newGame.data.id}`)
+        console.log("holis", newGame);
+        if(newGame.status){
+            alert('Game added!')
+            setInput({
+                name: "",
+                description: "", 
+                image: "",
+                released: "",
+                rating: "",
+                genres: [],
+                platforms: []
+            })
+            history.push(`/home/${newGame.data.id}`)
+        } 
+        alert("There is a game with that name already!")
     }
 
     function handlePlatforms(event) {
@@ -224,7 +228,7 @@ export default function Form() {
                         <button 
                         type="submit" 
                         id='submitButton' 
-                        disabled={errors.name || errors.description || errors.platforms || errors.rating || !input.name || !input.description || !input.platforms}
+                        disabled={errors.name || errors.description || errors.platforms|| errors.image || errors.rating || !input.name || !input.description || !input.platforms}
                         className={styles.addButton} 
                         >Add</button>
                     </div>

@@ -149,13 +149,26 @@ const getPlatforms = async (req, res) => {
 
 const createGame = async (req, res) => {
         const { name, image, genres, released, rating, platforms, description } = req.body;
+        const allGames = await getDbInfo();
+        const repeatedName = await allGames.filter(game => game.name.toLowerCase() === name.toLowerCase())
+
         if (!name || !platforms || !description ) {
-             throw new Error ("No se brindaron los datos necesarios")
+            return res.status(400).send("One of the following is missing: name, description, platforms!")
+        }
+        
+        if (repeatedName.length) {
+            return res.status(404).send("There is a game with that name already!")
         }
       
         try {
             let newVideogame = await Videogame.create({
-                ...req.body,
+                name,
+                image,
+                genres,
+                released,
+                rating,
+                platforms,
+                description
             })
             const relation = await Genres.findAll({ 
                 where: {name: genres} 
@@ -164,8 +177,7 @@ const createGame = async (req, res) => {
             res.status(200).json(newVideogame)
     
         } catch (error) {
-                console.log(error);
-                res.status(404).send({error: error.message})
+                res.send({error:error.message})
             }
     }
 
