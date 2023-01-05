@@ -7,7 +7,7 @@ export function validation(input){
     if(!input.name) errors.name = "Name is required!"
     if(!input.description) errors.description = "Description is required!"
     if(!input.platforms.length) errors.platforms = "Platforms are required!"
-    if (input.rating && !regexRating.test(input.rating)) errors.rating = "Rating should be a number between 0 and 5!"
+    if (!regexRating.test(input.rating)) errors.rating = "Rating should be a number between 0 and 5!"
     if (input.image && !regexImage.test(input.image)) errors.image = "Should be a valid URL!"
 
     return errors;

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import { addGame, getGenres, getPlatforms } from '../redux/actions';
+import { addGame, getGenres, getPlatforms, cleanDetail } from '../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { validation } from './Validation';
 import styles from "../styles/Create.module.css";
@@ -58,9 +58,11 @@ export default function Form() {
                 genres: [],
                 platforms: []
             })
+            dispatch(cleanDetail())
             history.push(`/home/${newGame.data.id}`)
-        } 
-        alert("There is a game with that name already!")
+        } else {
+            alert("There is a game with that name already!")
+        }
     }
 
     function handlePlatforms(event) {

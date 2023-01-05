@@ -13,13 +13,17 @@ export const GET_PLATFORMS = "GET_PLATFORMS";
 export const CLEAN_DETAIL ="CLEAN_DETAIL";
 export const CLEAN_VIDEOGAMES = "CLEAN_VIDEOGAMES";
 
-export function getVideogames(){ //para manejo de errores usar try catch y hacer que me muestre los errores que tira el back
+export function getVideogames(){ 
     return async function(dispatch){
-        let apiRequest = await axios.get("http://localhost:3001/videogames");
-        return dispatch({
-            type: 'GET_VIDEOGAMES',
-            payload: apiRequest.data
-        })
+        try {
+            let apiRequest = await axios.get("http://localhost:3001/videogames");
+            return dispatch({
+                type: 'GET_VIDEOGAMES',
+                payload: apiRequest.data
+            })
+        } catch (error) {
+            return error;
+        }
     }
 }
 
@@ -39,11 +43,15 @@ export function searchGame(name) {
 
 export function gameDetail(id) {
     return async function(dispatch){
-        let apiRequest = await axios.get(`http://localhost:3001/videogames/${id}`);
-        return dispatch({
-            type: 'GAME_DETAIL',
-            payload: apiRequest.data
-        })
+        try {
+            let apiRequest = await axios.get(`http://localhost:3001/videogames/${id}`);
+            return dispatch({
+                type: 'GAME_DETAIL',
+                payload: apiRequest.data
+            })
+        } catch(error) {
+            return error;
+        }
     }
 }
 
