@@ -41,6 +41,7 @@ export default function Home() {
                 videogamesPerPage={videogamesPerPage}
                 allVideogames={allVideogames.length}
                 pages={pages}
+                currentPage={currentPage}
                 />
                 </div>
                 

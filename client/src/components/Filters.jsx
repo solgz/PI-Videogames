@@ -12,7 +12,7 @@ export default function Filters({pages}) {
     function handleFilterByGenre(event) {
         dispatch(cleanVideogames())
         dispatch(filterVideogamesByGenre(event.target.value))
-        dispatch(getVideogames()) //aca crear constante como la que hice en el create
+        dispatch(getVideogames()) 
         pages(1)
     }
 

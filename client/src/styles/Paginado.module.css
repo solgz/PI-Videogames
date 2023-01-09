@@ -16,10 +16,29 @@
     margin: 5px;
     width: 27px;
     height: 27px;
-    
 }
 
-.pageNumbers:hover {
+.currentNumber {
+    font-size: 12px;
+    color: rgb(7, 0, 9);
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #12021c;
+    border-radius: 4px;
+    margin: 5px;
+    width: 27px;
+    height: 27px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #851bcb,
+    0 0 0.8rem #851bcb,
+    0 0 2.8rem #851bcb,
+    inset 0 0 1.3rem #851bcb; 
+}
+
+.pageNumbers:hover:enabled {
     cursor: pointer;
     border: 2px solid #fff;
     border-radius: 4px;
@@ -31,14 +50,3 @@
     inset 0 0 1.3rem #9c28e9; 
   }
 
-.pageNumbers:focus {
-    cursor: pointer;
-    border: 2px solid #851bcb;
-    border-radius: 4px;
-    box-shadow: 0 0 .2rem #fff,
-    0 0 .2rem #fff,
-    0 0 2rem #851bcb,
-    0 0 0.8rem #851bcb,
-    0 0 2.8rem #851bcb,
-    inset 0 0 1.3rem #851bcb; 
-}

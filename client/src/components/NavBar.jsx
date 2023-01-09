@@ -19,6 +19,7 @@ export default function NavBar({pages}) {
                 pages(1)
             } else {
                 alert("We're sorry! We couldn't find the game you're searching for")
+                setSearch("");
             }
         }
     }
@@ -28,7 +29,6 @@ export default function NavBar({pages}) {
         dispatch(restoreGames())
         dispatch(getVideogames())
         setSearch("");
-        //aca tmb podria agregar que limpie los filtros que quedan "puestos" en los select
     }
         
   

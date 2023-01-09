@@ -50,6 +50,7 @@ export default function Form() {
         console.log("holis", newGame);
         if(newGame.status){
             alert('Game added!')
+            dispatch(cleanDetail())
             setInput({
                 name: "",
                 description: "", 
@@ -59,7 +60,6 @@ export default function Form() {
                 genres: [],
                 platforms: []
             })
-            dispatch(cleanDetail())
             history.push(`/home/${newGame.data.id}`)
         } else {
             alert("There is a game with that name already!")

@@ -11,9 +11,6 @@ export default function Detail(props) {
     const { id } = useParams();
     const game = useSelector((state) => state.gameDetail);
 
-    // useEffect(() => {
-    //     dispatch(gameDetail(id))
-    // }, [dispatch, id])
     useEffect(() => {
         dispatch(gameDetail(id))
         return dispatch(cleanDetail())
