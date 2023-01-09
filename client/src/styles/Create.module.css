@@ -70,6 +70,8 @@
 
 .labels {
     color: white;
+    display: flex;
+    align-items: left;
 }
 
 .fieldContainer {
@@ -79,6 +81,46 @@
     gap: 5px;
 }
 
+.selectedGandPContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.selectedGandP {
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.selectedGandPButtons {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 4px;
+    color: rgb(67, 13, 91);
+    background-color:rgb(255, 255, 255);
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 0 0 .2rem rgb(0, 0, 0),
+    0 0 .2rem rgb(0, 0, 0),
+    0 0 2.8rem #6f18a8,
+    inset 0 0 1.3rem #851eca; 
+}
+
+.selectedGandPButtons:hover {
+    cursor: pointer;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem rgb(204, 14, 14),
+    0 0 0.8rem rgb(204, 14, 14),
+    0 0 2.8rem rgb(204, 14, 14),
+    inset 0 0 1.3rem rgb(204, 14, 14); 
+}
 
 .validationErrors {
     color: rgb(204, 14, 14);
@@ -98,7 +140,7 @@
     justify-content: center;
     font-size: 18px;
     color: rgb(67, 13, 91);
-    border: 2px solid rgb(141, 61, 175);
+    border: 1px solid rgb(141, 61, 175);
     background-color:rgb(141, 61, 175);
     border-radius: 4px;
     padding: 5px;

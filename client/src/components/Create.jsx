@@ -47,7 +47,6 @@ export default function Form() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const newGame = await dispatch(addGame(input))
-        console.log("holis", newGame);
         if(newGame.status){
             alert('Game added!')
             dispatch(cleanDetail())
@@ -67,10 +66,11 @@ export default function Form() {
     }
 
     function handlePlatforms(event) {
-        setInput({
+        if (!input.platforms.includes(event.target.value)) { 
+            setInput({
             ...input,
             platforms: [...input.platforms, event.target.value]
-        })
+        })}
         
         setErrors(
             validation({
@@ -82,26 +82,28 @@ export default function Form() {
     }
 
     function handleGenres(event) {
+        if(!input.genres.includes(event.target.value)) {
+            setInput({
+                ...input,
+                genres: [...input.genres, event.target.value]
+            })
+        }
+    }
+
+    function handleDeleteGenre(e) {
+        e.preventDefault();
         setInput({
             ...input,
-            genres: [...input.genres, event.target.value]
+            genres: input.genres.filter((gen) => gen !== e.target.value)
         })
     }
 
-    // function handleDeleteGenre(e) {
-    //     e.preventDefault();
-    //     setInput({
-    //         ...input,
-    //         genres: input.genres.filter((gen) => gen !== e.target.value)
-    //     })
-    // }
-
-    // function handleDeletePlatforms(plat) {
-    //     setInput({
-    //         ...input,
-    //         platforms: input.platforms.filter((p) => p !== plat)
-    //     })
-    // }
+    function handleDeletePlatforms(e) {
+        setInput({
+            ...input,
+            platforms: input.platforms.filter((p) => p !== e.target.value)
+        })
+    }
 
     useEffect(() => {
         dispatch(getGenres())
@@ -125,7 +127,7 @@ export default function Form() {
                             placeholder='Name'
                             value= {input.name}
                             name='name'
-                            onChange={(event) => handleChange(event)}
+                            onChange={handleChange}
                         />                        
                     </div>
                     <div className={styles.validationErrors}>{errors.name && <p>{errors.name}</p>}</div>
@@ -137,7 +139,7 @@ export default function Form() {
                             placeholder='Description'
                             value= {input.description}
                             name='description'
-                            onChange={(event) => handleChange(event)}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className={styles.validationErrors}>{errors.description && <p>{errors.description}</p>}</div>
@@ -149,7 +151,7 @@ export default function Form() {
                             placeholder='Image URL'
                             value= {input.image}
                             name='image'
-                            onChange={(event) => handleChange(event)}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className={styles.validationErrors}>{errors.image && <p>{errors.image}</p>}</div>
@@ -161,7 +163,7 @@ export default function Form() {
                             placeholder='Released'
                             value= {input.released}
                             name='released'
-                            onChange={(event) => handleChange(event)}
+                            onChange={handleChange}
                         />
                     </div>
 
@@ -175,7 +177,7 @@ export default function Form() {
                             step="0.1"
                             min="0"
                             max="5"
-                            onChange={(event) => handleChange(event)}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className={styles.validationErrors}>{errors.rating && <p>{errors.rating}</p>}</div>
@@ -192,15 +194,21 @@ export default function Form() {
                                     )
                                     })}
                             </select> 
-                            <ul><li className={styles.labels}>{input.genres.map((genre) => genre + ", ")}</li></ul>
-                            {/* {input.genres.map((genre) => {
+
+                            <div className={styles.selectedGandPContainer}>
+                            {input.genres.map((gen) => {
                                 return(
-                                    <div>
-                                        <p value={genre}>{genre}</p>
-                                        <button onClick={(e) => handleDeleteGenre(e)}>X</button>
+                                    <div className={styles.selectedGandP}>
+                                    <button 
+                                        key={gen + "button"} 
+                                        value={gen} 
+                                        onClick={handleDeleteGenre}
+                                        className={styles.selectedGandPButtons}
+                                        >{gen} x</button>
                                     </div>
-                                )
-                            })} */}
+                                    )
+                                })}
+                            </div>
 
                             <label className={styles.labels}>Platforms*</label>
                             <select name="platforms" onChange={(event) => handlePlatforms(event)}>
@@ -213,16 +221,21 @@ export default function Form() {
                                     )
                                     })}
                             </select> 
-                            <ul><li className={styles.labels}>{input.platforms.map((plat) => plat + ", ")}</li></ul>
 
-                            {/* {input.platforms.map((plat) => {
+                            <div className={styles.selectedGandPContainer}>
+                            {input.platforms.map((plat) => {
                                 return(
-                                    <div>
-                                    <p>{plat}</p>
-                                    <button onClick={(plat) => handleDeletePlatforms(plat)}>X</button>
+                                    <div className={styles.selectedGandP}>
+                                    <button 
+                                        key={plat + "button"} 
+                                        value={plat} 
+                                        onClick={handleDeletePlatforms}
+                                        className={styles.selectedGandPButtons}
+                                        >{plat} x</button>
                                     </div>
                                     )
-                                })} */}
+                                })}
+                            </div>
                     </div>
                     <div className={styles.validationErrors}>{errors.platforms && <p>{errors.platforms}</p>}</div>
 
