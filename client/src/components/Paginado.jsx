@@ -15,7 +15,6 @@ export default function Paginado ({videogamesPerPage, allVideogames, pages, curr
     function handleNext() {
         pageNumbers.includes(currentPage+1) && pages(currentPage+1)
     }
-    console.log(currentPage)
 
     return(
         <nav>  
