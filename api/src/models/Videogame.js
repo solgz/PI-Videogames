@@ -25,7 +25,6 @@ module.exports = (sequelize) => {
     platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
-      unique: true,
     },
     release: {
       type: DataTypes.DATEONLY,

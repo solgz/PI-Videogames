@@ -19,7 +19,7 @@ export default function Paginado ({videogamesPerPage, allVideogames, pages, curr
     return(
         <nav>  
             <ul className={styles.numbersContainer}>
-                <li><button onClick={handlePrev} className={styles.pageNumbers} disabled={currentPage === 1}>⇦</button></li>
+                <li><button onClick={handlePrev} className={styles.pageNumbers} disabled={currentPage === 1}>🢀</button></li>
                 {
                     pageNumbers?.map((number) => {
                         return (
@@ -32,7 +32,7 @@ export default function Paginado ({videogamesPerPage, allVideogames, pages, curr
                         )
                     })
                 }
-                <li><button onClick={handleNext} className={styles.pageNumbers} disabled={!pageNumbers.includes(currentPage+1)}>⇨</button></li>
+                <li><button onClick={handleNext} className={styles.pageNumbers} disabled={!pageNumbers.includes(currentPage+1)}>🢂</button></li>
             </ul>
 
         </nav>
